@@ -39,10 +39,11 @@ The `JsonLogger` class accepts an options object with the following properties:
 - `format`: The log format. The default value is `json`. Available log formats are `json` and `raw`.
 - `stdout`: The standard output stream. The default value is `process.stdout`.
 - `stderr`: The standard error stream. The default value is `process.stderr`.
-- `dateFormat`: The date format to use. The default value is `DD/MMM/YYYY:HH:mm:ss Z`. The date format is based on the [moment.js](https://momentjs.com/) library.
+- `dateFormat`: The date format to use. The default value is `DD/MMM/YYYY:HH:mm:ss Z`. The date format is based on the [date-and-time](https://github.com/knowledgecode/date-and-time) library.
 
 If the `format` property is set to `json`, the log message will be formatted as a JSON object. Otherwise, the log message will be formatted as a raw string.
-If you try to instantiate a `JsonLogger` without log level, the default log level will be `info` or `debug` based on the `NODE_ENV` environment variable.
+If you try to instantiate a `JsonLogger` without log level, the default log level will be `info` or `debug` based on the `NODE_ENV` environment variable
+when it is set to `test` or `development` respectively.
 
 ## Methods
 
@@ -53,6 +54,6 @@ The `JsonLogger` provides the following methods:
 - `error(message: string, ...args: any[])`: Logs an error message.
 - `debug(message: string, ...args: any[])`: Logs a debug message.
 - `verbose(message: string, ...args: any[])`: Logs a verbose message.
-- `log(message: string, ...args: any[])`: Logs a message.
+- `log(message: string, ...args: any[])`: A shorthand for `info` method.
 
 

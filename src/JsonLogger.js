@@ -1,5 +1,7 @@
 import { inspect } from 'util';
-import moment from 'moment';
+import date from 'date-and-time';
+
+const DefaultDateFormat = 'DD/MMM/YYYY:HH:mm:ss ZZ'
 
 class JsonLogger {
 
@@ -8,7 +10,7 @@ class JsonLogger {
      */
     constructor(options) {
         this.options = Object.assign({}, {
-            dateFormat: 'DD/MMM/YYYY:HH:mm:ss Z',
+            dateFormat: DefaultDateFormat,
             level: 'info',
             format: 'json',
             stdout: process.stdout,
@@ -92,7 +94,7 @@ class JsonLogger {
             }
         }
         // add timestamp
-        args.unshift(moment().format(this.options.dateFormat || 'DD/MMM/YYYY:HH:mm:ss Z'));
+        args.unshift(date.format(new Date(), this.options.dateFormat || DefaultDateFormat));
         if (this.options.format === 'json') {
             log.write(JSON.stringify(args) + '\n');
             return;

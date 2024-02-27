@@ -27,3 +27,4 @@ spec
 # babel
 babel.config.js
 rollup.config.js
+jsconfig.json
