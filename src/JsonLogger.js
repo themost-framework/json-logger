@@ -103,6 +103,13 @@ class JsonLogger {
             (arg) => arg.replace(/^'/, '').replace(/'$/, '')
         ).join(',') + '\n');
     }
+
+    level(level) {
+        if (Object.prototype.hasOwnProperty.call(JsonLogger.Levels, level)) {
+            this.level = JsonLogger.Levels[level];
+        }
+    }
+
 }
 
 export {
