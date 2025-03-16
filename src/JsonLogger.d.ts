@@ -27,4 +27,6 @@ export declare class JsonLogger {
     warn(...args: any[]): void;
     verbose(...args: any[]): void;
     debug(...args: any[]): void;
+
+    level(level: 'error' | 'warn' | 'info' | 'verbose' | 'debug'): void;
 }
