@@ -11,7 +11,7 @@ export declare class JsonLogger {
 
     constructor(options?: JsonLoggerOptions);
 
-    level: number;
+    logLevel: number;
 
     static Levels: {
         error: number,

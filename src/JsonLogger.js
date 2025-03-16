@@ -22,9 +22,9 @@ class JsonLogger {
                 this.options.level = 'debug';
             }
         }
-        this.level = JsonLogger.Levels.info;
+        this.logLevel = JsonLogger.Levels.info;
         if (Object.prototype.hasOwnProperty.call(JsonLogger.Levels, this.options.level)) {
-            this.level = JsonLogger.Levels[this.options.level];
+            this.logLevel = JsonLogger.Levels[this.options.level];
         }
     }
 
@@ -39,42 +39,42 @@ class JsonLogger {
     }
 
     log() {
-        if (this.level < JsonLogger.Levels.info) {
+        if (this.logLevel < JsonLogger.Levels.info) {
             return;
         }
         this.write.apply(this, ['log'].concat(Array.from(arguments)));
     }
 
     info() {
-        if (this.level < JsonLogger.Levels.info) {
+        if (this.logLevel < JsonLogger.Levels.info) {
             return;
         }
         this.write.apply(this, ['info'].concat(Array.from(arguments)));
     }
 
     warn() {
-        if (this.level < JsonLogger.Levels.warn) {
+        if (this.logLevel < JsonLogger.Levels.warn) {
             return;
         }
         this.write.apply(this, ['warn'].concat(Array.from(arguments)));
     }
 
     error() {
-        if (this.level < JsonLogger.Levels.error) {
+        if (this.logLevel < JsonLogger.Levels.error) {
             return;
         }
         this.write.apply(this, ['error'].concat(Array.from(arguments)));
     }
 
     verbose() {
-        if (this.level < JsonLogger.Levels.verbose) {
+        if (this.logLevel < JsonLogger.Levels.verbose) {
             return;
         }
         this.write.apply(this, ['verbose'].concat(Array.from(arguments)));
     }
 
     debug() {
-        if (this.level < JsonLogger.Levels.debug) {
+        if (this.logLevel < JsonLogger.Levels.debug) {
             return;
         }
         this.write.apply(this, ['debug'].concat(Array.from(arguments)));
@@ -106,7 +106,7 @@ class JsonLogger {
 
     level(level) {
         if (Object.prototype.hasOwnProperty.call(JsonLogger.Levels, level)) {
-            this.level = JsonLogger.Levels[level];
+            this.logLevel = JsonLogger.Levels[level];
         }
     }
 
